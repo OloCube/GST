@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>George Standard Time Clock</title>
+  <script>
+    function updateGSTClock() {
+      const now = new Date();
+
+      // Add 4 minutes 40 seconds to current local time (assumed EST)
+      const gstOffsetMs = (4 * 60 + 40) * 1000;
+      const gst = new Date(now.getTime() + gstOffsetMs);
+
+      document.getElementById("gstClock").textContent = gst.toLocaleTimeString();
+    }
+
+    setInterval(updateGSTClock, 1000);
+    window.onload = updateGSTClock;
+  </script>
+</head>
+<body>
+  <h1 style="font-size: 18px;">George Standard Time (GST)</h1>
+  <p id="gstClock"></p>
+</body>
+</html>
